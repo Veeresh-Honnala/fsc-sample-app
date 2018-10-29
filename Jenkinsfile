@@ -4,11 +4,12 @@ node {
        echo "Build Stage" 
        checkout scm
        deleteDir();
-       sh 'mvn clean package'
+       mvnHome = tool 'M3'
+       sh '${mvnHome}mvn clean package'
     }
     stage('Test') { 
         echo "Test Stage"  
-        sh 'mvn test'
+        sh '${mvnHome}mvn test'
     }
     stage('Deploy') { 
         echo "Deploy Stage" 
