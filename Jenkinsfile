@@ -9,18 +9,17 @@ pipeline {
     }
 stages {
     stage('Build') { 
-       //echo "Build Stage" 
-       checkout scm
-       deleteDir();
-       //mvnHome = tool 'M3'
-       sh 'mvn clean package'
+    
+    steps {
+                sh 'mvn -B -DskipTests clean package'
+}
+       
     }
     stage('Test') { 
-       // echo "Test Stage"  
-        sh 'mvn test'
+       steps {
+                sh 'mvn test'
+}
     }
-    stage('Deploy') { 
-        echo "Deploy Stage" 
-    }
+    
    }
 }
