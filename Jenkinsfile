@@ -1,5 +1,11 @@
 #!/usr/bin/env groovy
 node {  
+	agent {
+	        docker {
+	            image 'maven:3-alpine'
+	            args '-v /root/.m2:/root/.m2'
+	        }
+	}
     stage('Build') { 
        echo "Build Stage" 
        checkout scm
