@@ -4,7 +4,7 @@ node {
        echo "Build Stage" 
        checkout scm
        deleteDir();
-       mvnHome = tool 'M3'
+       //mvnHome = tool 'M3'
        sh 'mvn clean package'
     }
     stage('Test') { 
